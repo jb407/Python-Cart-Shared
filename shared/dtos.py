@@ -1,7 +1,7 @@
 from typing import Union
 from datetime import datetime
 from pydantic import BaseModel
-from common import OrderStatus
+from shared.common import OrderStatus
 
 class ItemDto(BaseModel):
     id: int
