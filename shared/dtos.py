@@ -45,11 +45,13 @@ PersonResponse = Union[StaffDto, CustomerDto]
 class OrderLineDto(BaseModel):
     orderId: int
     itemId: int
+    item: ItemResponse
 
     class Config:
         from_attributes = True
 
 class OrderDto(BaseModel):
+    id: int
     orderDate: datetime
     orderLines: list[OrderLineDto]
     orderStatus: OrderStatus
