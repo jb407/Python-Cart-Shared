@@ -39,11 +39,11 @@ class CustomerDto(PersonDto):
     custBalance: float
     maxOwing: float
 
-class OrderDto(BaseModel):
-    date: datetime
-    lines: list[ItemDto]
-    status: OrderStatus
-    userId: int
-
 ItemResponse = Union[UnitPriceVeggieDto, PackVeggieDto]
 PersonResponse = Union[StaffDto, CustomerDto]
+
+class OrderDto(BaseModel):
+    date: datetime
+    lines: list[ItemResponse]
+    status: OrderStatus
+    userId: int
