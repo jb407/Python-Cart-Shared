@@ -48,10 +48,11 @@ class OrderLineDto(BaseModel):
 
     class Config:
         from_attributes = True
+
 class OrderDto(BaseModel):
-    date: datetime
-    lines: list[OrderLineDto]
-    status: OrderStatus
+    orderDate: datetime
+    orderLines: list[OrderLineDto]
+    orderStatus: OrderStatus
     userId: int
 
     class Config:
