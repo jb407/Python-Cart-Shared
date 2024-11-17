@@ -42,8 +42,17 @@ class CustomerDto(PersonDto):
 ItemResponse = Union[UnitPriceVeggieDto, PackVeggieDto]
 PersonResponse = Union[StaffDto, CustomerDto]
 
+class OrderLineDto(BaseModel):
+    orderId: int
+    itemId: int
+
+    class Config:
+        from_attributes = True
 class OrderDto(BaseModel):
     date: datetime
-    lines: list[ItemResponse]
+    lines: list[OrderLineDto]
     status: OrderStatus
     userId: int
+
+    class Config:
+        from_attributes = True
